@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gedcom>
+  <fam id="@F0001@">
+    <husb>@I0002@</husb>
+    <wife>@I0001@</wife>
+    <marr>
+      <date>20 Nov 1947</date>
+      <plac>Westminster Abbey, London</plac>
+    </marr>
+    <chil>@I0006@</chil>
+    <chil>@I0007@</chil>
+    <chil>@I0008@</chil>
+    <chil>@I0009@</chil>
+  </fam>
+  <fam id="@F0002@">
+    <husb>@I0003@</husb>
+    <wife>@I0004@</wife>
+    <marr/>
+    <chil>@I0002@</chil>
+  </fam>
+  <indi id="@I0263@">
+    <name>Margaret</name>
+    <sex>F</sex>
+    <deat value="Y">
+      <date>1482</date>
+    </deat>
+    <fams>@F0124@</fams>
+    <note>@N0137@</note>
+    <chan>
+      <date>8 Mar 2004</date>
+    </chan>
+  </indi>
+</gedcom>

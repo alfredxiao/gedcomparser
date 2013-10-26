@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gedcom>
+  <indi id="@I0001@">
+    <name>Elizabeth Alexandra Mary /Windsor/</name>
+    <sex>F</sex>
+    <birt>
+      <date>21 Apr 1926</date>
+      <plac>17 Bruton Street, London, W1</plac>
+    </birt>
+    <occu>Queen</occu>
+    <famc>@F0003@</famc>
+    <fams>@F0001@</fams>
+    <note>@N0002@</note>
+    <chan>
+      <date>13 Dec 2003</date>
+    </chan>
+  </indi>
+  <indi id="@I0002@">
+    <name>Philip /Mountbatten/</name>
+    <sex>M</sex>
+    <birt>
+      <date>1921</date>
+    </birt>
+    <titl>Duke of Edinburgh</titl>
+    <famc>@F0002@</famc>
+    <fams>@F0001@</fams>
+    <note>@N0001@</note>
+    <chan>
+      <date>6 Mar 2004</date>
+    </chan>
+  </indi>
+  <indi id="@I0003@">
+    <name>Andrew</name>
+    <sex>M</sex>
+    <fams>@F0002@</fams>
+    <note>@N0013@</note>
+    <chan>
+      <date>6 Mar 2004</date>
+    </chan>
+  </indi>
+</gedcom>
