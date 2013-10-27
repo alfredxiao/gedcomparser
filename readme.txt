@@ -5,6 +5,8 @@ Usage:
 
   e.g.
   ./run.sh input/input_1.txt output_1.txt
+  
+  NOTE: run.sh runs the jar file in the current folder, not in target folder
 
 Maven Usage:
   - to compile
