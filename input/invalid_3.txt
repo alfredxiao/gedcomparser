@@ -10,7 +10,7 @@
 1 NOTE @N0002@
 1 CHAN
 2 DATE 13 Dec 2003
-0 INDI
+0 @I202 INDI
 1 NAME Philip /Mountbatten/
 1 SEX M
 1 BIRT

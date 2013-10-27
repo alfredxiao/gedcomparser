@@ -40,13 +40,10 @@ public class GParser {
             String line = null;
             while ( (line = reader.readLine()) != null) {
                 lineNumber = reader.getLineNumber();
-                if (line.length() == 0) {
-                    System.err.println("WARNING: empty line at " + lineNumber);
-                    continue;
-                }
 
                 GLine curGLine = GLine.fromStringLine(lineNumber, line);
                 processor.processLine(curGLine);
+                
                 if (lineNumber % FLUSH_INTERVAL == 0) writer.flush();
             }
             

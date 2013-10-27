@@ -12,6 +12,7 @@ class GProcessorTest extends spock.lang.Specification {
         def gline3 = GLine.fromStringLine(3, "2 FAMN Xiao")
         def gline4 = GLine.fromStringLine(4, "0 @ID02@ INDI")
         def gline5 = GLine.fromStringLine(5, "1 DATE 2012")
+        def gline6 = GLine.fromStringLine(6, "0 TRTL")
         def mock_writer = Mock(XMLStreamWriter)
         def processor = Spy(GProcessor, constructorArgs: [mock_writer])
         
@@ -160,20 +161,43 @@ class GProcessorTest extends spock.lang.Specification {
             prevLine == gline5
         }
 
-        
+        and:
+        when: "parse the last line"
+        processor.processLine(gline6)
+
+        then: "multiple elements are closed"
+        with (processor) {
+            1 * finishPreviousContent()
+            1 * closePreviousElements()
+            1 * beginCurrentElement()
+        }
+        with (mock_writer) {
+            1 * writeCharacters("2012")
+            2 * writeEndElement()
+            1 * writeStartElement("trtl")
+            0 * writeAttribute(_, _)
+        }
+
+        expect: "stack decreases"
+        with (processor) {
+            levelStack.peek() == 0
+            levelStack.size() == 2
+            prevLine == gline6
+        }
+
         and:
         when: "finish parsing all lines"
         processor.endDocument()
 
-        then: "multiple elements are closed"
+        then: "prvious element is closed"
         with (processor) {
             1 * finishPreviousContent()
             1 * closePreviousElements()
             0 * beginCurrentElement()
         }
         with (mock_writer) {
-            1 * writeCharacters("2012")
-            3 * writeEndElement()
+            0 * writeCharacters(_)
+            2 * writeEndElement()
             0 * writeStartElement(_)
             0 * writeAttribute(_, _)
         }
@@ -183,6 +207,5 @@ class GProcessorTest extends spock.lang.Specification {
             levelStack.size() == 0
             prevLine == null
         }
-
     }
 }

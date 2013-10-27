@@ -82,10 +82,10 @@ class GProcessor {
         }
     }
 
-    // complete previous content or attribute
+    // complete previous line's data, be it should be written as content or value attribute
     void finishPreviousContent() throws XMLStreamException {
-        if (prevLine != null && prevLine.getType() == GLineType.GTAG && prevLine.getData() != null) {
-            if (curLine != null && prevLine.getLevel() < curLine.getLevel()) {
+        if (prevLine != null && prevLine.typeIsTagName() && !prevLine.dataIsEmpty()) {
+            if (curLine != null && prevLine.isAncestralLevelOf(curLine)) {
                 writer.writeAttribute("value", prevLine.getData());
             } else {
                 writer.writeCharacters(prevLine.getData());
@@ -95,13 +95,13 @@ class GProcessor {
     
     void beginCurrentElement() throws IOException, GParserException, XMLStreamException {
 
-        switch (curLine.getType()) {
-        case GID:
+        switch (curLine.getTagType()) {
+        case ID:
             writer.writeStartElement(curLine.getData().toLowerCase());
-            writer.writeAttribute("id", curLine.getTag());
+            writer.writeAttribute("id", curLine.getITag());
             break;
-        case GTAG:
-            writer.writeStartElement(curLine.getTag().toLowerCase());
+        case TAGNAME:
+            writer.writeStartElement(curLine.getITag().toLowerCase());
             break;
         }
 

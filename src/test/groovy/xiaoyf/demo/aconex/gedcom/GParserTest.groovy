@@ -31,7 +31,7 @@ class GParserTest extends spock.lang.Specification {
         
         then: "expect exceptions to be thrown"
         def e = thrown(GParserException)
-        e.getMessage().contains("invalid/missing id/tag")
+        e.getMessage().contains(GLine.Errors.INVALID_TAG.toString())
         e.getMessage().contains("at line 3")
     }
 
@@ -161,9 +161,9 @@ class GParserTest extends spock.lang.Specification {
 
         where:
         input_filename      | output_filename   | error_msg_frag
-        "invalid_1.txt"     | "invalid_o1.txt"  | "invalid/missing id/tag"
-        "invalid_2.txt"     | "invalid_o2.txt"  | "level not found or invalid"
-        "invalid_3.txt"     | "invalid_o3.txt"  | "invalid/missing id/tag"
+        "invalid_1.txt"     | "invalid_o1.txt"  | GLine.Errors.INVALID_TAG.toString()
+        "invalid_2.txt"     | "invalid_o2.txt"  | GLine.Errors.INVALID_LEVEL.toString()
+        "invalid_3.txt"     | "invalid_o3.txt"  | GLine.Errors.INVALID_ID.toString()
     }
 
     def "Run main method without any arguments"() {
