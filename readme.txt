@@ -19,3 +19,4 @@ Maven Usage:
 Notes:
   - If source file contains lines with invalid format, they will be reported and parsing will stop there.
   - By default, 'mvn package' produces a jar file in the target folder
+  - This project has been tested in Maven 3.1.1, JDK 1.7, under Linux
