@@ -24,3 +24,9 @@ Notes
 * By default, 'mvn package' produces a jar file in the target folder
 * This project has been tested in Maven 3.1.1, JDK 1.7, under Linux
 
+Thoughts
+---------
+* To improve performance, we could introduce parallelism into this program by
+  # Having separate threads to parse different sections of the raw data file
+  # Having separate threads to work on different stages of parsing: Line parsing, converting parsed lines into XML elements, writing to XML target file, etc.
+  # Combine the above two approaches
