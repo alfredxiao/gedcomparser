@@ -27,6 +27,6 @@ Notes
 Thoughts
 ---------
 * To improve performance, we could introduce parallelism into this program by
-  ## Having separate threads to parse different sections of the raw data file
-  ## Having separate threads to work on different stages of parsing: Line parsing, converting parsed lines into XML elements, writing to XML target file, etc.
-  ## Combine the above two approaches
+1. Having separate threads to parse different sections of the raw data file
+2. Having separate threads to work on different stages of parsing: Line parsing, converting parsed lines into XML elements, writing to XML target file, etc.
+3. Combine the above two approaches
