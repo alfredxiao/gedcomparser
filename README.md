@@ -18,6 +18,11 @@ Maven Usage (How to change source code)
 * to make a jar file
     mvn package
 
+Design and Development/Test
+-------
+* Spock/Groovy is used to writing tests, this make them more readable and intuitive
+* StAX, a streaming API for XML, is used for writing target XML document. Streaming is very fast but often exhibits some limitations like forward-only.
+
 Notes
 -------
 * If source file contains lines with invalid format, they will be reported and parsing will stop there.
